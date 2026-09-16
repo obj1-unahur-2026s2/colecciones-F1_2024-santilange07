@@ -1,0 +1,78 @@
+import campeonato.campeonato
+import pilotos.*
+import neumaticos.*
+import escuderias.*
+
+describe "Tests F1 2024" {
+
+    test "1. Dado que Verstappen comienza con 437 puntos y tiene más de 200 puntos, cuando gana una carrera e inmediatamente hace vuelta rápida con Leclerc en segundo lugar, entonces sus puntos pasan a 463 - puntosQueOtorga: 7" {
+        
+        assert.that(true)
+    }
+
+    test "2. Dado que Norris comienza con 374 puntos y Piastri con 292 y son compañeros de escudería, cuando Norris gana una carrera (y hace mejor vuelta que le da +1) con Piastri en segundo lugar, entonces Norris tiene 400 puntos y Piastri suma los 3 adicionales llegando a 295 - puntosQueOtorga: 8" {
+
+        assert.that(true)
+    }
+
+    test "3. Dado que Sainz comienza con 241 puntos sin racha ganadora, cuando gana su primera carrera consecutiva, entonces sus puntos pasan a 266 - puntosQueOtorga: 7" {
+
+        assert.equals(2, 1+1)
+    }
+
+    test "4. Dado que Sainz acaba de ganar una carrera (está en racha), cuando gana una segunda carrera consecutiva, entonces suma 25 + 10 de bonificación llegando a 301 puntos - puntosQueOtorga: 8" {
+
+        assert.equals(2, 1+1)
+    }
+
+    test "5. Dado que Ferrari cuenta con Leclerc (356 puntos) y Sainz (241 puntos) al inicio, cuando se consulta el total de puntos de la escudería, entonces acumula 597 puntos - puntosQueOtorga: 7" {
+
+        assert.equals(2, 1+1)
+    }
+
+    test "6. Dado que se registran los 5 pilotos en el campeonato con sus puntos iniciales (1700 totales), cuando se consulta el delta de puntos entre el líder y el último, entonces es 196 - puntosQueOtorga: 8" {
+
+        assert.equals(2, 1+1)
+    }
+
+    test "7. Dado que el campeonato tiene los 5 pilotos registrados con delta de 196 puntos, cuando se consulta si es competitivo, entonces es falso porque es mayor a 100 - puntosQueOtorga: 7" {
+
+        assert.notThat(false)
+    }
+
+    test "8. Dado que Leclerc gana una carrera con Sainz en segundo lugar, cuando se registra este resultado, entonces Leclerc suma 25 puntos llegando a 381 y Sainz pierde 3 quedando en 238 - puntosQueOtorga: 8" {
+
+        assert.that(true)
+    }
+
+    test "9. Dado que Leclerc tiene más de 200 puntos (356) y hace vuelta rápida, cuando se consulta su puntaje, entonces suma 2 puntos adicionales llegando a 358 - puntosQueOtorga: 7" {
+
+        assert.equals(2, 1+1)
+    }
+
+    test "10. Dado que Norris tiene 374 puntos (más de 200) y hace vuelta rápida, cuando se consulta su puntaje, entonces suma 1 punto llegando a 375 - puntosQueOtorga: 7" {
+
+        assert.equals(2, 1+1)
+    }
+
+    test "11. Dado que Sainz hace vuelta rápida, cuando se consulta si su puntaje cambió, entonces no suma nada y sigue en 241 - puntosQueOtorga: 6" {
+
+        assert.equals(2, 1+1)
+    }
+
+    test "12. Dado que Verstappen comienza con neumático blando y registra 10 vueltas, cuando se consulta cuántas vueltas le quedan, entonces quedan 5 vueltas disponibles - puntosQueOtorga: 7" {
+
+        assert.equals(2, 1+1)
+    }
+
+    test "13. Dado que Verstappen entra al pit stop y cambia de blando a duro, cuando sale con el nuevo neumático, entonces tiene 45 vueltas disponibles nuevas y su contador reinicia a 0 - puntosQueOtorga: 8" {
+
+        assert.equals(2, 1+1)
+    }
+
+    test "14. Dado que el campeonato registra los 5 pilotos iniciales y se consulta si hay representación de Ferrari, entonces es verdadero - puntosQueOtorga: 5" {
+
+        assert.that(true)
+    }
+
+}
