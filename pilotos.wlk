@@ -12,7 +12,9 @@ object verstappen {
         if (self.hizoVueltaRapida() and self.puntos() > 200){
             puntos += 1
         }
+          if(self.esSegundo() and campeonato.primero().esLeclerc()){puntos-=3}
     }
+    method esSegundo(){return campeonato.segundo()==self}
     method sumarUnaVuelta(tiempo){
         vueltas += 1
         tiempoDeVuelta = tiempo
@@ -36,6 +38,9 @@ object verstappen {
     method ganoCarrera(){
         return campeonato.primero() == self
     }
+    method esLeclerc(){
+        return false
+    }
 }
 
 object norris {
@@ -48,7 +53,9 @@ object norris {
         if (self.hizoVueltaRapida() and self.puntos() > 200){
             puntos += 1
         }
+          if(self.esSegundo() and campeonato.primero().esLeclerc()){puntos-=3}
     }
+    method esSegundo(){return campeonato.segundo()==self}
     method sumarUnaVuelta(tiempo){
         vueltas += 1
         tiempoDeVuelta = tiempo
@@ -72,6 +79,9 @@ object norris {
      method ganoCarrera(){
         return campeonato.primero() == self
     }
+    method esLeclerc(){
+        return false
+    }
 }
 
 object sainz {
@@ -80,13 +90,15 @@ object sainz {
     var vueltas = 0
     var tiempoDeVuelta =0
     var racha = false 
-    method sumarPuntos(valor){
-        if(self.ganoCarrera()){puntos +=25
-        racha = true}
+    method sumarPuntos(){
         if (self.ganoCarrera() and racha){
             puntos += 10
         }
+        if(self.ganoCarrera()){puntos +=25
+        racha = true}
+        if(self.esSegundo() and campeonato.primero().esLeclerc()){puntos-=3}
     }
+    method esSegundo(){return campeonato.segundo()==self}
     method sumarUnaVuelta(tiempo){
         vueltas += 1
         tiempoDeVuelta = tiempo
@@ -110,6 +122,9 @@ object sainz {
      method ganoCarrera(){
         return campeonato.primero() == self
     }
+    method esLeclerc(){
+        return false
+    }
 }
 
 object leclerc {
@@ -117,12 +132,13 @@ object leclerc {
     var neumaticos = blando
     var vueltas = 0
      var tiempoDeVuelta =0 
-    method sumarPuntos(valor){
+    method sumarPuntos(){
         if(self.ganoCarrera()){puntos +=25}
         if (self.hizoVueltaRapida()){
             puntos += 2
         }
     }
+    method esSegundo(){return campeonato.segundo()==self}
     method sumarUnaVuelta(tiempo){
         vueltas += 1
         tiempoDeVuelta = tiempo
@@ -146,6 +162,9 @@ object leclerc {
      method ganoCarrera(){
         return campeonato.primero() == self
     }
+    method esLeclerc(){
+        return true
+    }
 }
 
 object piastri {
@@ -153,9 +172,10 @@ object piastri {
     var neumaticos = blando
     var vueltas = 0
      var tiempoDeVuelta =0 
-    method sumarPuntos(valor){
+    method sumarPuntos(){
         if(self.ganoCarrera()){puntos +=25}
         if(self.esSegundo() and norris.ganoCarrera()){puntos+=3}
+        if(self.esSegundo() and campeonato.primero().esLeclerc()){puntos-=3}
     }
     method sumarUnaVuelta(tiempo){
         vueltas += 1
@@ -181,4 +201,7 @@ object piastri {
         return campeonato.primero() == self
     }
     method esSegundo(){return campeonato.segundo()==self}
+    method esLeclerc(){
+        return false
+    }
 }

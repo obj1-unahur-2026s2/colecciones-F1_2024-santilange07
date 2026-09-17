@@ -7,6 +7,9 @@ object ferrari {
     method pilotos(){
         return pilotos
     }
+    method totalDePuntos(){
+        return pilotos.sum({p=>p.puntos()})
+    }
 }
 
 object mclaren {
@@ -17,6 +20,9 @@ object mclaren {
     method pilotos(){
         return pilotos
     }
+     method totalDePuntos(){
+        return pilotos.sum({p=>p.puntos()})
+    }
 }
 
 object redBull {
@@ -26,5 +32,8 @@ object redBull {
     }
     method pilotos(){
         return pilotos
+    }
+     method totalDePuntos(){
+        return pilotos.sum({p=>p.puntos()})
     }
 }
