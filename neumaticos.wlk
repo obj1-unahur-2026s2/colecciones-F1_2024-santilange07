@@ -17,7 +17,7 @@ method rindeMejor()= campeonato.temperatura().between(25, 40)
 
 object duro {
     method duracion(){
-    return 30
+    return 45
 }
 method rindeMejor()= campeonato.temperatura() > 40
 

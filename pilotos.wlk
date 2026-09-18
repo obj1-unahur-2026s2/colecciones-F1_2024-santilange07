@@ -6,7 +6,6 @@ object verstappen {
     var puntos = 437
     var neumaticos = blando
     var vueltas = 0
-    var tiempoDeVuelta =0 
     method sumarPuntos(){
         if(self.ganoCarrera()){puntos +=25}
         if (self.hizoVueltaRapida() and self.puntos() > 200){
@@ -15,9 +14,8 @@ object verstappen {
           if(self.esSegundo() and campeonato.primero().esLeclerc()){puntos-=3}
     }
     method esSegundo(){return campeonato.segundo()==self}
-    method sumarUnaVuelta(tiempo){
-        vueltas += 1
-        tiempoDeVuelta = tiempo
+    method sumarVueltas(cantidad){
+        vueltas = cantidad
     }
     method entrarAlPitStop(neumaticoNuevo){
         vueltas = 0
@@ -30,7 +28,10 @@ object verstappen {
         return puntos
     }
     method vueltasQueLeQuedan(){
-         return vueltas - neumaticos.duracion()
+         return (self.vueltas() - neumaticos.duracion()).abs()
+    }
+    method vueltas(){
+        return vueltas
     }
     method escuderia(){
         return redBull
@@ -47,7 +48,6 @@ object norris {
     var puntos = 374
     var neumaticos = blando
     var vueltas = 0
-     var tiempoDeVuelta =0 
     method sumarPuntos(){
         if(self.ganoCarrera()){puntos +=25}
         if (self.hizoVueltaRapida() and self.puntos() > 200){
@@ -56,9 +56,8 @@ object norris {
           if(self.esSegundo() and campeonato.primero().esLeclerc()){puntos-=3}
     }
     method esSegundo(){return campeonato.segundo()==self}
-    method sumarUnaVuelta(tiempo){
-        vueltas += 1
-        tiempoDeVuelta = tiempo
+    method sumarVueltas(cantidad){
+        vueltas = cantidad
     }
     method entrarAlPitStop(neumaticoNuevo){
         vueltas = 0
@@ -71,7 +70,10 @@ object norris {
         return puntos
     }
     method vueltasQueLeQuedan(){
-         return vueltas - neumaticos.duracion()
+         return (self.vueltas() - neumaticos.duracion()).abs()
+    }
+    method vueltas(){
+        return vueltas
     }
     method escuderia(){
         return mclaren
@@ -88,7 +90,6 @@ object sainz {
     var puntos = 241
     var neumaticos = blando
     var vueltas = 0
-    var tiempoDeVuelta =0
     var racha = false 
     method sumarPuntos(){
         if (self.ganoCarrera() and racha){
@@ -99,9 +100,8 @@ object sainz {
         if(self.esSegundo() and campeonato.primero().esLeclerc()){puntos-=3}
     }
     method esSegundo(){return campeonato.segundo()==self}
-    method sumarUnaVuelta(tiempo){
-        vueltas += 1
-        tiempoDeVuelta = tiempo
+   method sumarVueltas(cantidad){
+        vueltas = cantidad
     }
     method entrarAlPitStop(neumaticoNuevo){
         vueltas = 0
@@ -113,8 +113,11 @@ object sainz {
     method puntos(){
         return puntos
     }
-    method vueltasQueLeQuedan(){
-         return vueltas - neumaticos.duracion()
+   method vueltasQueLeQuedan(){
+         return (self.vueltas() - neumaticos.duracion()).abs()
+    }
+    method vueltas(){
+        return vueltas
     }
     method escuderia(){
         return ferrari
@@ -131,7 +134,6 @@ object leclerc {
     var puntos = 356
     var neumaticos = blando
     var vueltas = 0
-     var tiempoDeVuelta =0 
     method sumarPuntos(){
         if(self.ganoCarrera()){puntos +=25}
         if (self.hizoVueltaRapida()){
@@ -139,9 +141,8 @@ object leclerc {
         }
     }
     method esSegundo(){return campeonato.segundo()==self}
-    method sumarUnaVuelta(tiempo){
-        vueltas += 1
-        tiempoDeVuelta = tiempo
+    method sumarVueltas(cantidad){
+        vueltas = cantidad
     }
     method entrarAlPitStop(neumaticoNuevo){
         vueltas = 0
@@ -153,8 +154,11 @@ object leclerc {
     method puntos(){
         return puntos
     }
-    method vueltasQueLeQuedan(){
-        return vueltas - neumaticos.duracion()
+   method vueltasQueLeQuedan(){
+         return (self.vueltas() - neumaticos.duracion()).abs()
+    }
+    method vueltas(){
+        return vueltas
     }
     method escuderia(){
         return ferrari
@@ -171,15 +175,13 @@ object piastri {
   var puntos = 292
     var neumaticos = blando
     var vueltas = 0
-     var tiempoDeVuelta =0 
     method sumarPuntos(){
         if(self.ganoCarrera()){puntos +=25}
         if(self.esSegundo() and norris.ganoCarrera()){puntos+=3}
         if(self.esSegundo() and campeonato.primero().esLeclerc()){puntos-=3}
     }
-    method sumarUnaVuelta(tiempo){
-        vueltas += 1
-        tiempoDeVuelta = tiempo
+    method sumarVueltas(cantidad){
+        vueltas = cantidad
     }
     method entrarAlPitStop(neumaticoNuevo){
         vueltas = 0
@@ -191,8 +193,11 @@ object piastri {
     method puntos(){
         return puntos
     }
-    method vueltasQueLeQuedan(){
-        return vueltas - neumaticos.duracion()
+   method vueltasQueLeQuedan(){
+         return (self.vueltas() - neumaticos.duracion()).abs()
+    }
+    method vueltas(){
+        return vueltas
     }
     method escuderia(){
         return mclaren
